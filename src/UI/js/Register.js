@@ -2,13 +2,14 @@ import {useState} from 'react'
 import '../css/forms.css'
 import {auth} from '../../Back/firebase'
 import {useNavigate, Link} from 'react-router-dom'
-import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
+import {createUserWithEmailAndPassword, sendEmailVerification, updateProfile} from 'firebase/auth'
 import {useAuthValue} from '../../Back/AuthContext'
-import {ManejoError} from '../../Back/ManejaDeError'
+import {ManejoError} from '../../Back/ManejoDeError'
 
 function Register() {
 
   const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
@@ -33,6 +34,7 @@ function Register() {
       // Create a new user with email and password using firebase
         createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
+          updateProfile(auth.currentUser, {})
           sendEmailVerification(auth.currentUser)   
           .then(() => {
             setTimeActive(true)

@@ -1,8 +1,11 @@
 import '../css/profile.css'
 import {useAuthValue} from '../../Back/AuthContext'
+import {crearDirectorio} from '../../Back/firebase'
 
 function Profile() {
-  const {currentUser} = useAuthValue()
+  const {currentUser} = useAuthValue();
+  
+  crearDirectorio();
 
   return (
       <div className='center'>

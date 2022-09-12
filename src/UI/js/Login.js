@@ -5,7 +5,7 @@ import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth'
 import {auth} from '../../Back/firebase'
 import {useNavigate} from 'react-router-dom'
 import {useAuthValue} from '../../Back/AuthContext'
-import {ManejoError} from '../../Back/ManejaDeError'
+import {ManejoError} from '../../Back/ManejoDeError'
 
 function Login(){
 

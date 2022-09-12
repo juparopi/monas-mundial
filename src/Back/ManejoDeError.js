@@ -17,6 +17,9 @@ export function ManejoError(err){
       case 'Firebase: Error (auth/user-not-found).':
           error = 'Error en email/contraseña. Intenta de nuevo.';
           break;
+      case 'Firebase: Error (auth/network-request-failed).':
+        error = 'Revisa tu conexión a internet e intenta nuevamente.';
+        break;
     
       default:
         error = err.message;
